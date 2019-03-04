@@ -1,14 +1,13 @@
-# ansible-role-ntp
+ Ansible role: ntp
+======================
 
-[![Build Status](https://travis-ci.org/diodonfrost/ansible-role-ntp.svg?branch=master)](https://travis-ci.org/diodonfrost/ansible-role-ntp)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.ntp-660198.svg)](https://galaxy.ansible.com/diodonfrost/ntp)
+[![Build Status](https://travis-ci.org/do1jlr/role-ntp.svg?branch=master)](https://travis-ci.org/do1jlr/role-ntp)
 
 This role provide a compliance for install ntp on your target host.
 
 ## Requirements
 
 This role was developed using Ansible 2.7 Backwards compatibility is not guaranteed.
-Use `ansible-galaxy install diodonfrost.ntp` to install the role on your system.
 
 Supported platforms:
 
