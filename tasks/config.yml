@@ -2,6 +2,7 @@
 # Tasks file for config ntp daemon
 
 - name: seting-up ntp config
+  become: yes
   template:
     src: ntp.conf.j2
     dest: "{{ ntp_configfile }}"

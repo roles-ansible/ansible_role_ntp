@@ -2,11 +2,13 @@
 # Tasks file for install ntp daemon on OpenBSD system
 
 - name: Install ntp daemon on OpenBSD
+  become: yes
   package:
     name: "{{ ntp_package }}"
     state: present
 
 - name: Service ntp on OpenBSD
+  become: yes
   service:
     name: "{{ ntp_service }}"
     enabled: yes

@@ -2,22 +2,26 @@
 # Tasks file for install ntp daemon on Linux system
 
 - name: Update apt cache on Debian Family os
+  become: yes
   apt:
     update_cache: yes
   changed_when: false
   when: ansible_os_family == "Debian"
 
 - name: Update emerge cache on Gentoo
+  become: yes
   shell: emerge-webrsync
   changed_when: false
   when: ansible_os_family == "Gentoo"
 
 - name: Install ntp daemon on Linux
+  become: yes
   package:
     name: "{{ ntp_package }}"
     state: present
 
 - name: Service ntp on Linux
+  become: yes
   service:
     name: "{{ ntp_service }}"
     enabled: yes
