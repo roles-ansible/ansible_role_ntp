@@ -1,7 +1,7 @@
  Ansible role: ntp
 ======================
 
-[![Build Status](https://travis-ci.org/do1jlr/role-ntp.svg?branch=master)](https://travis-ci.org/do1jlr/role-ntp)
+[![Build Status](https://travis-ci.org/DO1JLR/role-ntp.svg?branch=master)](https://travis-ci.org/DO1JLR/role-ntp)
 
 This role provide a compliance for install ntp on your target host.
 
