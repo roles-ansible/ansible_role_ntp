@@ -10,8 +10,6 @@ galaxy_info:
     - name: EL
       versions:
         - 7
-        - 6
-        - 5
     - name: Fedora
       versions:
         - 29
@@ -24,38 +22,32 @@ galaxy_info:
         - buster
     - name: Ubuntu
       versions:
-        - disco
         - bionic
         - xenial
     - name: OracleLinux
       versions:
-        - 7
-        - 6
+        - any
     - name: Amazon
       versions:
-        - 2017.12
-        - 2016.03
+        - any
     - name: opensuse
       versions:
-        - 42.2
-        - 42.3
+        - any
     - name: SLES
       versions:
-        - 12
-        - 15
+        - any
     - name: ArchLinux
       versions:
         - any
     - name: Gentoo
       versions:
-        - stage3
+        - any
     - name: FreeBSD
       versions:
-        - 11.2
-        - 10.4
+        - any
     - name: OpenBSD
       versions:
-        - 6.4
+        - any
 
   galaxy_tags:
     - system
