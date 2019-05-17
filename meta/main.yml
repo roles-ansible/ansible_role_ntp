@@ -1,9 +1,8 @@
 galaxy_info:
   role_name: ntp
-  author: diodonfrost
-  company: diodonfrost
-  description: Ansible role for manage ntp daemon on a large number of os
-  license: license Apache
+  author: L3D
+  description: Ansible role for manage ntp daemon
+  license: "Apache"
 
   min_ansible_version: 2.7
 
@@ -71,5 +70,6 @@ galaxy_info:
     - system
     - packaging
     - ntp
+    - time
 
 dependencies: []
