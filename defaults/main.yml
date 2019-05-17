@@ -19,3 +19,6 @@ ntp_servers:
 # Enable or disable ntp statistics
 # Default is false
 ntp_statistics: false
+
+# version check for this playbook
+submodules_versioncheck: true
