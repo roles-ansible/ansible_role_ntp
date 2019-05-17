@@ -24,28 +24,10 @@ galaxy_info:
       versions:
         - bionic
         - xenial
-    - name: OracleLinux
-      versions:
-        - any
-    - name: Amazon
-      versions:
-        - any
-    - name: opensuse
-      versions:
-        - any
-    - name: SLES
-      versions:
-        - any
     - name: ArchLinux
       versions:
         - any
     - name: Gentoo
-      versions:
-        - any
-    - name: FreeBSD
-      versions:
-        - any
-    - name: OpenBSD
       versions:
         - any
 
