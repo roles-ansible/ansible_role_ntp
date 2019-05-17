@@ -1,7 +1,7 @@
  Ansible role: ntp
 ======================
 
-[![Build Status](https://travis-ci.org/DO1JLR/role-ntp.svg?branch=master)](https://travis-ci.org/DO1JLR/role-ntp)
+[![Build Status](https://travis-ci.org/cahos-bodensee/role-ntp.svg?branch=master)](https://travis-ci.org/chaos-bodensee/role-ntp)
 
 This role provide a compliance for install ntp on your target host.
 
@@ -11,66 +11,8 @@ This role was developed using Ansible 2.7 Backwards compatibility is not guarant
 
 Supported platforms:
 
-```yaml
-- name: EL
-  versions:
-    - 7
-    - 6
-    - 5
-- name: Fedora
-  versions:
-    - 29
-    - 28
-    - 27
-    - 26
-- name: Debian
-  versions:
-    - stretch
-    - jessie
-    - wheezy
-    - squeeze
-- name: Ubuntu
-  versions:
-    - bionic
-    - xenial
-    - trusty
-    - precise
-    - trusty
-- name: OracleLinux
-  versions:
-    - 7
-    - 6
-- name: Amazon
-  versions:
-    - 2017.12
-    - 2016.03
-    - 2013.09
-- name: opensuse
-  versions:
-    - 13.2
-    - 42.1
-    - 42.2
-    - 42.3
-- name: SLES
-  versions:
-    - 11
-    - 12
-    - 15
-- name: ArchLinux
-  versions:
-    - any
-- name: Gentoo
-  versions:
-    - stage3
-- name: FreeBSD
-  versions:
-    - 11.2
-    - 10.4
-    - 10.3
-- name: OpenBSD
-  versions:
-    - 6.0
-    - 6.4
+```
+Please have a look into the meta file for this kind of information!
 ```
 
 ## Role Variables
