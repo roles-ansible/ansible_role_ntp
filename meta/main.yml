@@ -17,19 +17,16 @@ galaxy_info:
         - 29
         - 28
         - 27
-        - 26
     - name: Debian
       versions:
         - stretch
         - jessie
-        - wheezy
-        - squeeze
+        - buster
     - name: Ubuntu
       versions:
+        - disco
         - bionic
         - xenial
-        - trusty
-        - precise
     - name: OracleLinux
       versions:
         - 7
@@ -38,16 +35,12 @@ galaxy_info:
       versions:
         - 2017.12
         - 2016.03
-        - 2013.09
     - name: opensuse
       versions:
-        - 13.2
-        - 42.1
         - 42.2
         - 42.3
     - name: SLES
       versions:
-        - 11
         - 12
         - 15
     - name: ArchLinux
@@ -60,10 +53,8 @@ galaxy_info:
       versions:
         - 11.2
         - 10.4
-        - 10.3
     - name: OpenBSD
       versions:
-        - 6.0
         - 6.4
 
   galaxy_tags:

@@ -9,11 +9,12 @@ This role provide a compliance for install ntp on your target host.
 
 This role was developed using Ansible 2.7 Backwards compatibility is not guaranteed.
 
-Supported platforms:
+```
+Please have a look into the meta file for supportet platform overview!
 
+Please note: It could need some fixes on exotic untested devices!
 ```
-Please have a look into the meta file for this kind of information!
-```
+
 
 ## Role Variables
 
@@ -43,21 +44,6 @@ ntp_servers:
 ntp_statistics: false
 ```
 
-## Dependencies
-
-None
-
-## Example Playbook
-
-This is a sample playbook file for deploying the Ansible Galaxy ntp role in a localhost.
-
-```yaml
----
-- hosts: localhost
-  become: true
-  roles:
-    - role: diodonfrost.ntp
-```
 
 ## Local Testing
 
@@ -147,3 +133,4 @@ Apache 2
 ## Author Information
 
 This role was created in 2018 by diodonfrost.
+This role was updated in 2019 by L3D
