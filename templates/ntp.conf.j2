@@ -2,18 +2,20 @@
 ##                                 ##
 ## THIS FILE IS MANAGED BY ANSIBLE ##
 ##                                 ##
+##     It is about time            ##
+##                                 ##
 #####################################
 
 driftfile {{ ntp_driftfile }}
 
-{%- for restrict_ip in ntp_restrict -%}
+{% for restrict_ip in ntp_restrict %}
 restrict {{ restrict_ip }}
-{%- endfor -%}
+{% endfor %}
 
-{%- for pool_server in ntp_servers -%}
+{% for pool_server in ntp_servers %}
 server {{ pool_server }}
-{%- endfor -%}
+{% endfor %}
 
-{%- if ntp_statistics -%}
+{% if ntp_statistics | bool %}
 statistics clockstats cryptostats loopstats peerstats
-{%- endif -%}
+{% endif %}

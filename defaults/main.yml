@@ -11,6 +11,8 @@ ntp_restrict:
 # Ntp server to use for date synchronization
 # Default is worldwide pool
 ntp_servers:
+  - ptbtime1.ptb.de
+  - ptbtime3.ptb.de
   - 0.pool.ntp.org iburst
   - 1.pool.ntp.org iburst
   - 2.pool.ntp.org iburst
