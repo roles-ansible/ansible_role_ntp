@@ -1,107 +1,81 @@
 ---
-services:
-  - docker
+version: "~> 1.0"
 
+os: linux
+
+language: python
+
+python:
+  - '3.8'
+  - '3.7'
+  - '3.6'
+
+services: docker
+
+cache:
+  pip: true
+  directories:
+  - ".tox"
+
+install:
+  - pip install tox-travis
 env:
-#-----------------------------------------------
-#
-# CentOS
-#
-#-----------------------------------------------
-  - distribution: centos
-    version: "7"
-  - distribution: centos
-    version: "6"
-
-#--------------------------------
-#
-# Fedora
-#
-#--------------------------------
-  - distribution: fedora
-    version: "28"
-  - distribution: fedora
-    version: "27"
-  - distribution: fedora
-    version: "26"
-
-#--------------------------------
-#
-# Ubuntu
-#
-#--------------------------------
-  - distribution: ubuntu
-    version: "18.04"
-  - distribution: ubuntu
-    version: "16.04"
-  - distribution: ubuntu
-    version: "14.04"
-  - distribution: ubuntu
-    version: "12.04"
-
-#--------------------------------
-#
-# Debian
-#
-#--------------------------------
-  - distribution: debian
-    version: "9"
-  - distribution: debian
-    version: "8"
-
-#--------------------------------
-#
-# Oraclelinux
-#
-#--------------------------------
-  - distribution: oraclelinux
-    version: "7"
-  - distribution: oraclelinux
-    version: "6"
-
-#--------------------------------
-#
-# Amazonlinux
-#
-#--------------------------------
-  - distribution: amazonlinux
-    version: "2"
-  - distribution: amazonlinux
-    version: "1"
-
-#--------------------------------
-#
-# Archlinux
-#
-#--------------------------------
-  - distribution: archlinux
-    version: "rolling"
-
-before_install:
-  # Build docker container
-  - 'sudo docker pull diodonfrost/${distribution}-${version}-ansible:latest'
-
+  jobs:
+    - TOX_DISTRO=archlinuxlatest   TOX_ANSIBLE=latest
+    - TOX_DISTRO=alpinelatest      TOX_ANSIBLE=latest
+    - TOX_DISTRO=alpine310         TOX_ANSIBLE=latest
+    - TOX_DISTRO=alpine39          TOX_ANSIBLE=latest
+    - TOX_DISTRO=centoslatest      TOX_ANSIBLE=latest
+    - TOX_DISTRO=centos8           TOX_ANSIBLE=latest
+    - TOX_DISTRO=centos7           TOX_ANSIBLE=latest
+    - TOX_DISTRO=clearlinuxlatest  TOX_ANSIBLE=latest
+    - TOX_DISTRO=debianlatest      TOX_ANSIBLE=latest
+    - TOX_DISTRO=debianstable      TOX_ANSIBLE=latest
+    - TOX_DISTRO=debian10          TOX_ANSIBLE=latest
+    - TOX_DISTRO=debian9           TOX_ANSIBLE=latest
+    - TOX_DISTRO=debian8           TOX_ANSIBLE=latest
+    - TOX_DISTRO=fedoralatest      TOX_ANSIBLE=latest
+    - TOX_DISTRO=fedora31          TOX_ANSIBLE=latest
+    - TOX_DISTRO=fedora30          TOX_ANSIBLE=latest
+    - TOX_DISTRO=fedora29          TOX_ANSIBLE=latest
+    - TOX_DISTRO=fedora28          TOX_ANSIBLE=latest
+    - TOX_DISTRO=opensuselatest    TOX_ANSIBLE=latest
+    - TOX_DISTRO=opensuse15        TOX_ANSIBLE=latest
+    - TOX_DISTRO=ubuntulatest      TOX_ANSIBLE=latest
+    - TOX_DISTRO=ubuntu2004        TOX_ANSIBLE=latest
+    - TOX_DISTRO=ubuntu1904        TOX_ANSIBLE=latest
+    - TOX_DISTRO=ubuntu1804        TOX_ANSIBLE=latest
+    - TOX_DISTRO=ubuntu1604        TOX_ANSIBLE=latest
+    - TOX_DISTRO=alpinelatest      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=alpine310         TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=alpine39          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=centoslatest      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=centos8           TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=centos7           TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=clearlinuxlatest  TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=debianlatest      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=debianstable      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=debian10          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=debian9           TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=debian8           TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=fedoralatest      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=fedora31          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=fedora30          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=fedora29          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=fedora28          TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=opensuselatest    TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=opensuse15        TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=ubuntulatest      TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=ubuntu2004        TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=ubuntu1904        TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=ubuntu1804        TOX_ANSIBLE={29,28}
+    - TOX_DISTRO=ubuntu1604        TOX_ANSIBLE={29,28}
 script:
-  - container_id=$(mktemp)
-
-  # Run container and mount ansible role with it
-  - 'sudo docker run --detach --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --volume="${PWD}":/etc/ansible/roles/ansible-role-ntp:ro diodonfrost/${distribution}-${version}-ansible:latest > "${container_id}"'
-
-  # Check syntax
-  - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-ntp/tests/test.yml --syntax-check'
-
-  # Run ansible playbook
-  - 'sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-ntp/tests/test.yml'
-
-  # Test indempotence
-  - >
-    sudo docker exec "$(cat ${container_id})" env ANSIBLE_FORCE_COLOR=1 ansible-playbook -v /etc/ansible/roles/ansible-role-ntp/tests/test.yml
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-
-  # Delete container
-  - 'sudo docker rm -f "$(cat ${container_id})"'
+  - tox -e $(echo py${TRAVIS_PYTHON_VERSION} | tr -d .)-ansible${TOX_ANSIBLE}-${TOX_DISTRO}
+  - |
+    rm -r .tox/py*/log/*
+    find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
