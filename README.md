@@ -44,88 +44,6 @@ ntp_servers:
 ntp_statistics: false
 ```
 
-
-## Local Testing
-
-The preferred way of locally testing the role is to use Docker. You will have to install Docker on your system.
-
-You can also use vagrant and Virtualbox with vagrant to run tests locally. You will have to install Virtualbox and Vagrant on your system. For all our tests we use test-kitchen.
-
-Next install test-kitchen:
-
-```shell
-# Install dependencies
-gem install bundler
-bundle install
-```
-
-### Testing with Docker
-
-```shell
-# List all tests with kitchen
-kitchen list
-
-# fast test on one machine
-kitchen test default-centos-7
-
-# test on all machines
-kitchen test
-
-# for development, create environment
-kitchen create default-centos-7
-
-# Apply ansible playbook
-kitchen converge default-centos-7
-
-# Apply inspec tests
-kitchen verify default-centos-7
-```
-
-### Testing with Virtualbox
-
-```shell
-# Specify kitchen file on Linux
-export KITCHEN_YAML=.kitchen-vagrant.yml
-
-# fast test on one machine
-kitchen test os-packaging-freebsd-112
-```
-### Testing Windows and Solaris with Virtualbox
-
-Windows and Solaris can only be test with Virtualbox provider,do not use 'kitchen test' command for testing Windows and Solaris environment. There 4 steps you will be using with test-kitchen as part of your workflow.
-
-First of all we must set the kitchen file:
-```shell
-# For testing Windows
-export KITCHEN_YAML=.kitchen-windows.yml
-
-# For testing Solaris
-export KITCHEN_YAML=.kitchen-solaris.yml
-```
-
-Provision the virtual machines, a Linux machine to run Ansible and Windows/Solaris machines to apply playbook again:
-```shell
-# deploy machines
-kitchen create
-
-# Launch playbook
-kitchen converge
-```
-
-Finaly launch inspec tests:
-```shell
-kitchen verify
-```
-
-For cleaning environment use:
-```shell
-kitchen destroy
-```
-
-## License
-
-Apache 2
-
 ## Resources
 
 [ntp on ubuntu](https://doc.ubuntu-fr.org/ntp)
@@ -133,4 +51,4 @@ Apache 2
 ## Author Information
 
 This role was created in 2018 by diodonfrost.
-This role was updated in 2019 by L3D
+This role was updated in 2019 and 2020 by L3D *([DO1JLR](https://github.com/do1jlr))*
