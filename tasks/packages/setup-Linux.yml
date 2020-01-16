@@ -1,21 +1,6 @@
 ---
 # Tasks file for install ntp daemon on Linux system
 
-- name: install apt support on debian
-  become: yes
-  package:
-    name: python3-apt
-    state: present
-  changed_when: false
-  when: ansible_os_family == "Debian"
-
-- name: Update apt cache on Debian Family os
-  become: yes
-  apt:
-    update_cache: yes
-  changed_when: false
-  when: ansible_os_family == "Debian"
-
 - name: Update emerge cache on Gentoo
   become: yes
   shell: emerge-webrsync
