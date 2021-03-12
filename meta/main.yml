@@ -10,8 +10,6 @@ galaxy_info:
   platforms:
     - name: Archlinux
       versions: all
-    - name: Alpine
-      version: all
     - name: Clearlinux
       version: all
     - name: Debian
