@@ -1,46 +1,24 @@
 galaxy_info:
   role_name: ntp
-  author: L3D
+  author: do1jlr
   description: Ansible role for manage ntp daemon
   license: "Apache"
 
-  min_ansible_version: 2.7
+  min_ansible_version: 2.8
 
   platforms:
     - name: Archlinux
       versions: all
     - name: Alpine
-      version:
-        - latest
-        - 3.10
-        - 3.9
-        - 3.8
+      version: all
     - name: Clearlinux
-      version:
-        - latest
+      version: all
     - name: Debian
-      versions:
-        - latest
-        - stable
-        - 10
-        - 9
-        - 8
+      versions: all
     - name: EL
-      versions:
-        - latest
-        - 8
-        - 7
+      versions: all
     - name: Fedora
-      versions:
-        - latest
-        - 31
-        - 30
-        - 29
-        - 28
-    - name: Suse
-      versions:
-        - latest
-        - 15
+      versions: all
 
   galaxy_tags:
     - system

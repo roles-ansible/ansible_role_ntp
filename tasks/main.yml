@@ -1,12 +1,12 @@
 ---
-- include_tasks: versioncheck.yml
+- name: run versionscheck if enabled
+  ansible.builtin.include_tasks: versioncheck.yml
   when: submodules_versioncheck|bool
 
 - name: Include OS specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "{{ lookup('first_found', ntp__vars) }}"
 
 - name: Install ntp
-  include_tasks: "packages/setup-{{ ansible_system }}.yml"
-
+  ansible.builtin.include_tasks: "{{ lookup('first_found', ntp__install) }}"
 - name: Configure ntp
-  include_tasks: config.yml
+  ansible.builtin.include_tasks: config.yml

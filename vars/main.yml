@@ -1,3 +1,17 @@
 ---
-playbook_version_number: 2049 # should be over ninethousand
-playbook_version_path: 'role-ntp_chaos-bodensee_github.com.version' 
+playbook_version_number: 2050  # should be int
+playbook_version_path: 'role-ntp_chaos-bodensee_github.com.version'
+
+ntp__vars:
+  files:
+    - "{{ ansible_os_family }}.yml"
+    - 'fallback.yml'
+  paths:
+    - 'vars'
+
+ntp__install:
+  files:
+    - "setup-{{ ansible_system }}.yml"
+    - 'setup-Linux.yml'
+  paths:
+    - 'tasks/packages'

@@ -1,9 +1,0 @@
----
-- name: install and test this ntp role
-  hosts: localhost
-  tags:
-   - default
-  roles:
-    - './'
-  vars:
-    - submodules_versioncheck: false
