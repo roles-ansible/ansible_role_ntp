@@ -2,14 +2,14 @@
 # Tasks file for install ntp daemon on FreeBSD system
 
 - name: Install ntp daemon on FreeBSD
-  become: yes
-  package:
+  become: true
+  ansible.builtin.package:
     name: "{{ ntp_package }}"
     state: present
 
 - name: Service ntp on FreeBSD
-  become: yes
-  service:
+  become: true
+  ansible.builtin.service:
     name: "{{ ntp_service }}"
-    enabled: yes
+    enabled: true
     state: started

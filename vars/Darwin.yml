@@ -1,3 +1,4 @@
+---
 ntp_package:
 ntp_service: ntp
 

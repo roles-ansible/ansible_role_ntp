@@ -1,3 +1,4 @@
+---
 ntp_package: net-misc/ntp
 ntp_service: ntp-client
 
