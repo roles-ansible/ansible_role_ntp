@@ -1,8 +1,6 @@
  Ansible role: ntp
 ======================
 
-[![Build Status](https://travis-ci.org/chaos-bodensee/role-ntp.svg?branch=master)](https://travis-ci.org/chaos-bodensee/role-ntp)
-
 This role provide a compliance for install ntp on your target host.
 
 ## Requirements
@@ -51,4 +49,17 @@ ntp_statistics: false
 ## Author Information
 
 This role was created in 2018 by diodonfrost.
-This role was updated in 2019 and 2020 by L3D *([DO1JLR](https://github.com/do1jlr))*
+This role was updated and maintained since 2019 by L3D *([DO1JLR](https://github.com/do1jlr))*
+
+## Testing
+
+This role is using some github actions for testing. Because systemd operations inside docker containers do not work verry well only linting is tested.
+If you have a idea how to improve the testing please leave a comment, create a issue or even better open a pull request.
+
+We use these actions for testing:
+
+| Status | Marketplace |
+| ------ | ----------- |
+| [![Ansible Lint check](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/ansible-linting-check.yml/badge.svg)](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/ansible-linting-check.yml) | [ansible-lint](https://github.com/marketplace/actions/ansible-lint) |
+| [![Yamllint GitHub Actions](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/yamllint.yaml/badge.svg)](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/yamllint.yaml) | [yamllint-github-action](https://github.com/marketplace/actions/yamllint-github-action) |
+| [![Galaxy release](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/galaxy.yml/badge.svg)](https://github.com/roles-ansible/ansible_role_ntp/actions/workflows/galaxy.yml) | [publish-ansible-role-to-galaxy](https://github.com/marketplace/actions/publish-ansible-role-to-galaxy)
