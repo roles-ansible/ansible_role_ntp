@@ -1,22 +1,15 @@
- Ansible role: ntp
+[![Ansible Galaxy](https://raw.githubusercontent.com/roles-ansible/ansible_role_ntp/main/.github/galaxy.svg?sanitize=true)](https://galaxy.ansible.com/do1jlr/ntp) [![MIT License](https://raw.githubusercontent.com/roles-ansible/ansible_role_ntp/main/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/ansible_role_ntp/blob/main/LICENSE)
+
+ Ansible role ntp
 ======================
 
-This role provide a compliance for install ntp on your target host.
+Ansible role to install and configure the Network Time Protocol (NTP) Daemon.
 
-## Requirements
-
-This role was developed using Ansible 2.7 Backwards compatibility is not guaranteed.
-
-```
-Please have a look into the meta file for supportet platform overview!
-
-Please note: It could need some fixes on exotic untested devices!
-```
-
+This role was built with support for a variety of operating systems. Including Debian/Ubuntu, RHEL, Suse and Archlinux based Linux versions as well as FreeBSD, Darwin and OpenBSD.
 
 ## Role Variables
 
-This role has multiple variables. The defaults for all these variables are the following:
+In addition to the operating system-dependent variables, there are the following default values to adjust:
 
 ```yaml
 ---
@@ -32,14 +25,18 @@ ntp_restrict:
 # Ntp server to use for date synchronization
 # Default is worldwide pool
 ntp_servers:
+  - ptbtime1.ptb.de
+  - ptbtime3.ptb.de
   - 0.pool.ntp.org iburst
   - 1.pool.ntp.org iburst
   - 2.pool.ntp.org iburst
   - 3.pool.ntp.org iburst
 
 # Enable or disable ntp statistics
-# Default is false
 ntp_statistics: false
+
+# version check for this playbook (true is recomended)
+submodules_versioncheck: false
 ```
 
 ## Resources
