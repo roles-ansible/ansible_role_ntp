@@ -8,5 +8,6 @@
 
 - name: Install ntp
   ansible.builtin.include_tasks: "{{ lookup('first_found', ntp__install) }}"
+
 - name: Configure ntp
   ansible.builtin.include_tasks: config.yml

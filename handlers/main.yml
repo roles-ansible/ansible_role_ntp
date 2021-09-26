@@ -1,18 +1,18 @@
 ---
 - name: Restart ntp daemons on Linux
   become: true
-  service:
+  ansible.builtin.service:
     name: "{{ ntp_service }}"
     state: restarted
 
 - name: Restart ntp daemons on FreeBSD
   become: true
-  service:
+  ansible.builtin.service:
     name: "{{ ntp_service }}"
     state: restarted
 
 - name: Restart ntp daemons on OpenBSD
   become: true
-  service:
+  ansible.builtin.service:
     name: "{{ ntp_service }}"
     state: restarted
