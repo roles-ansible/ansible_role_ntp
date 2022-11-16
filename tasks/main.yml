@@ -1,7 +1,7 @@
 ---
-- name: run versionscheck if enabled
+- name: Optionally run versionscheck if enabled
   ansible.builtin.include_tasks: versioncheck.yml
-  when: submodules_versioncheck|bool
+  when: submodules_versioncheck | bool
 
 - name: Include OS specific variables.
   ansible.builtin.include_vars: "{{ lookup('first_found', ntp__vars) }}"
