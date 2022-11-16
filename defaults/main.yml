@@ -21,5 +21,9 @@ ntp_servers:
 # Enable or disable ntp statistics
 ntp_statistics: false
 
+# optionally set timezone
+ntp_set_time_zone: false
+ntp_timezone: 'Europe/Berlin'
+
 # version check for this playbook (true is recomended)
 submodules_versioncheck: false
