@@ -11,3 +11,7 @@
 
 - name: Configure ntp
   ansible.builtin.include_tasks: config.yml
+
+- name: Optionally set NTP Timezone
+  ansible.builtin.include_tasks: set_time_zone.yml
+  when: ntp_set_time_zone | bool
