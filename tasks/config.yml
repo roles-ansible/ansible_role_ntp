@@ -1,7 +1,5 @@
 ---
-# Tasks file for config ntp daemon
-
-- name: seting-up ntp config
+- name: Seting up ntp config
   become: true
   ansible.builtin.template:
     src: templates/ntp.conf.j2
