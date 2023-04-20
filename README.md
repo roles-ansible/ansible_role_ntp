@@ -1,4 +1,6 @@
-[![Ansible Galaxy](https://raw.githubusercontent.com/roles-ansible/ansible_role_ntp/main/.github/galaxy.svg?sanitize=true)](https://galaxy.ansible.com/do1jlr/ntp) [![MIT License](https://raw.githubusercontent.com/roles-ansible/ansible_role_ntp/main/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/ansible_role_ntp/blob/main/LICENSE)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.ntp.svg)](https://galaxy.ansible.com/l3d/ntp)
+[![BSD-3 Clause](https://ansible.l3d.space/svg/l3d.ntp_license.svg)](LICENSE)
+[![Maintainance](https://ansible.l3d.space/svg/l3d.ntp_maintainance.svg)](https://ansible.l3d.space/#l3d.ntp)
 
  Ansible role ntp
 ======================
@@ -43,14 +45,43 @@ ntp_statistics: false
 submodules_versioncheck: false
 ```
 
+## Example Usage
+
+### Getting this Role
+You can install this role using ansible Galaxy:
+```bash
+ansible-galaxy install l3d.ntp
+```
+
+Or download or clone this git repo. Example:
+```bash
+git clone https://github.com/roles-ansible/ansible_role_ntp.git l3d.ntp
+```
+### Using this role in a Playbook
+```yml
+---
+- name: Install and Configure NTP
+  hosts: example.com
+  roles:
+    - {role: l3d.ntp, tags: ntp}
+  vars:
+    submodules_versioncheck: true
+    ntp_set_time_zone: true
+    ntp_timezone: Zulu
+    # In this example, we enabled optional version check
+    # and set timezone to Zulu.
+```
+
+
 ## Resources
 
 [ntp on ubuntu](https://doc.ubuntu-fr.org/ntp)
 
 ## Author Information
 
-This role was created in 2018 by diodonfrost.
-This role was updated and maintained since 2019 by L3D *([DO1JLR](https://github.com/do1jlr))*
++ This role was created in 2018 by diodonfrost.
++ This role was updated and maintained since 2019 by L3D *([DO1JLR](https://github.com/do1jlr))*
++ In 2023 this role moved from ``do1jlr.ntp`` to ``l3d.ntp`` Namespace.
 
 ## Contribution
 Pleas feel free to open a issue or *(even better)* create a Pull Request if there is a problem or you missing a feature or something like that.
