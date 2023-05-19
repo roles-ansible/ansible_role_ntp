@@ -13,15 +13,15 @@
 - name: Check playbook version
   become: true
   ansible.builtin.slurp:
-    src: "/etc/.ansible-version/{{ playbook_version_path }}"
-  register: playbook_version
+    src: "/etc/.ansible-version/{{ ntp__playbook_version_path }}"
+  register: ntp__playbook_version
   when: submodules_versioncheck | bool
   ignore_errors: true
   failed_when: false
 
 - name: Print remote role version
   ansible.builtin.debug:
-    msg: "Remote role version: {{ playbook_version.content | default('Y3VycmVudGx5IG5vdCBkZXBsb3llZAo=') | b64decode | string }}"
+    msg: "Remote role version: {{ ntp__playbook_version.content | default('Y3VycmVudGx5IG5vdCBkZXBsb3llZAo=') | b64decode | string }}"
   when: submodules_versioncheck | bool
 
 - name: Print locale role version
@@ -33,13 +33,13 @@
   ansible.builtin.fail:
     msg: "Your ansible module has the version '{{ playbook_version_number }}' and is outdated. You need to update it!"
   when:
-    - playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck | bool
+    - ntp__playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck | bool
 
 - name: Write new version to remote disk
   become: true
   ansible.builtin.copy:
     content: "{{ playbook_version_number }}"
-    dest: "/etc/.ansible-version/{{ playbook_version_path }}"
+    dest: "/etc/.ansible-version/{{ ntp__playbook_version_path }}"
     mode: '0644'
   when: submodules_versioncheck | bool
   tags: skip_ansible_lint_template-instead-of-copy
