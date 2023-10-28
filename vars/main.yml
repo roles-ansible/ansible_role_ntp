@@ -1,5 +1,5 @@
 ---
-playbook_version_number: 2058
+playbook_version_number: 2059
 ntp__playbook_version_path: 'role-ntp_chaos-bodensee_github.com.version'
 
 ntp__vars:
