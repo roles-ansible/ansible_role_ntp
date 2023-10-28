@@ -1,17 +1,22 @@
 ---
 - name: Optionally run versionscheck if enabled
-  ansible.builtin.include_tasks: versioncheck.yml
+  ansible.builtin.include_tasks:
+    file: versioncheck.yml
   when: submodules_versioncheck | bool
 
 - name: Include OS specific variables.
-  ansible.builtin.include_vars: "{{ lookup('first_found', ntp__vars) }}"
+  ansible.builtin.include_vars:
+    file: "{{ lookup('first_found', ntp__vars) }}"
 
 - name: Install ntp
-  ansible.builtin.include_tasks: "{{ lookup('first_found', ntp__install) }}"
+  ansible.builtin.include_tasks:
+    file: "{{ lookup('first_found', ntp__install) }}"
 
 - name: Configure ntp
-  ansible.builtin.include_tasks: config.yml
+  ansible.builtin.include_tasks:
+    file: config.yml
 
 - name: Optionally set NTP Timezone
-  ansible.builtin.include_tasks: set_time_zone.yml
+  ansible.builtin.include_tasks:
+    file: set_time_zone.yml
   when: ntp_set_time_zone | bool

@@ -1,4 +1,4 @@
-[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.ntp.svg)](https://galaxy.ansible.com/l3d/ntp)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.ntp.svg)](https://galaxy.ansible.com/ui/standalone/roles/l3d/ntp/)
 [![BSD-3 Clause](https://ansible.l3d.space/svg/l3d.ntp_license.svg)](LICENSE)
 [![Maintainance](https://ansible.l3d.space/svg/l3d.ntp_maintainance.svg)](https://ansible.l3d.space/#l3d.ntp)
 
@@ -74,8 +74,14 @@ git clone https://github.com/roles-ansible/ansible_role_ntp.git l3d.ntp
 
 
 ## Resources
-
 [ntp on ubuntu](https://doc.ubuntu-fr.org/ntp)
+
+## Requirements
+The ``community.general`` collection is required for some parts of this ansible role.
+You can install it with this command:
+```bash
+ansible-galaxy collection install -r requirements.yml --upgrade
+```
 
 ## Author Information
 
