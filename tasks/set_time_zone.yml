@@ -1,5 +1,5 @@
 ---
-- name: "Set timezone to {{ ntp_timezone }}"
+- name: "Set timezone to {{ ntp_timezone }}"  # noqa: H1901
   become: true
   community.general.timezone:
     name: "{{ ntp_timezone }}"
