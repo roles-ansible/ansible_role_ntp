@@ -13,7 +13,7 @@
 - name: Check playbook version
   become: true
   ansible.builtin.slurp:
-    src: "/etc/.ansible-version/{{ playbook_version_path }}"
+    src: "/etc/.ansible-version/{{ ntp__playbook_version_path }}"
   register: playbook_version
   when: submodules_versioncheck | bool
   failed_when: false
@@ -38,7 +38,7 @@
   become: true
   ansible.builtin.copy:
     content: "{{ playbook_version_number }}"
-    dest: "/etc/.ansible-version/{{ playbook_version_path }}"
+    dest: "/etc/.ansible-version/{{ ntp__playbook_version_path }}"
     mode: '0644'
   when: submodules_versioncheck | bool
   tags: skip_ansible_lint_template-instead-of-copy
