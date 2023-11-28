@@ -15,5 +15,5 @@
     path: "{{ ntp_ntpstats_dir }}"
     state: directory
     mode: 0755
-    owner: ntp
-    group: ntp
+    owner: "{{ ntp_user }}"
+  when: ntp_statistics | bool

@@ -2,6 +2,7 @@
 ntp_package: 'ntpsec'
 ntp_package_absent: 'ntp'
 ntp_service: 'ntpsec'
+ntp_user: 'ntpsec'
 
 ntp_configfile: '/etc/ntpsec/ntp.conf'
 ntp_configfile_user: root

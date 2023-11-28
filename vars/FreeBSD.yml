@@ -2,6 +2,7 @@
 ntp_package: ntp
 ntp_package_absent: []
 ntp_service: ntpd
+ntp_user: 'ntp'
 
 ntp_configfile: /etc/ntp.conf
 ntp_configfile_user: root
