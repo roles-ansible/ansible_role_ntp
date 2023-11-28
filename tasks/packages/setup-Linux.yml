@@ -30,7 +30,7 @@
 
 - name: Service ntp on Linux
   become: true
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: "{{ ntp_service }}"
     enabled: true
     state: started

@@ -1,7 +1,7 @@
 ---
 - name: Restart ntp daemons on Linux
   become: true
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: "{{ ntp_service }}"
     state: restarted
 
