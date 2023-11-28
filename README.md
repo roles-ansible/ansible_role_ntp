@@ -38,6 +38,10 @@ ntp_servers:
 ntp_set_time_zone: false
 ntp_timezone: 'Europe/Berlin'
 
+# Leap seconds definition provided by tzdata
+ntp_leap: true
+ntp_leapfile: '/usr/share/zoneinfo/leap-seconds.list'
+
 # Enable or disable ntp statistics
 ntp_statistics: false
 
@@ -82,6 +86,9 @@ You can install it with this command:
 ```bash
 ansible-galaxy collection install -r requirements.yml --upgrade
 ```
+
+## Testing
+This role is tested on debian stable. It should work on other operating systems. Please Report issues if it does not work.
 
 ## Author Information
 

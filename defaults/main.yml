@@ -20,10 +20,19 @@ ntp_servers:
 
 # Enable or disable ntp statistics
 ntp_statistics: false
+ntp_ntpstats_dir: '/var/log/ntpstats/'
+ntp_statistics_overview:
+  - 'clockstats'
+  - 'peerstats'
+  - 'loopstats'
 
 # optionally set timezone
 ntp_set_time_zone: false
 ntp_timezone: 'Europe/Berlin'
+
+# Leap seconds definition provided by tzdata
+ntp_leap: true
+ntp_leapfile: '/usr/share/zoneinfo/leap-seconds.list'
 
 # version check for this playbook (true is recomended)
 submodules_versioncheck: false

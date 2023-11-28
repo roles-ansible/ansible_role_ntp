@@ -1,5 +1,6 @@
 ---
 ntp_package: ntp
+ntp_package_absent: []
 ntp_service: ntpd
 
 ntp_configfile: /etc/ntp.conf

@@ -1,6 +1,7 @@
 ---
-ntp_package:
+ntp_package: ntp
 ntp_service: ntp
+ntp_package_absent: []
 
 ntp_configfile: /private/etc/ntp.conf
 ntp_configfile_user: root
