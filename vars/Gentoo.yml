@@ -1,6 +1,8 @@
 ---
 ntp_package: net-misc/ntp
+ntp_package_absent: []
 ntp_service: ntp-client
+ntp_user: 'ntp'
 
 ntp_configfile: /etc/ntp.conf
 ntp_configfile_user: root

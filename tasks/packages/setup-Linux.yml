@@ -16,7 +16,13 @@
   when: ansible_os_family == "Gentoo"
   tags: 'skip_ansible_lint'
 
-- name: Install ntp daemon on Linux
+- name: Remove ntp legacy daemon on Linux
+  become: true
+  ansible.builtin.package:
+    name: "{{ ntp_package_absent }}"
+    state: absent
+
+- name: Install ntpsec daemon on Linux
   become: true
   ansible.builtin.package:
     name: "{{ ntp_package }}"

@@ -1,12 +1,17 @@
-#####################################
-##                                 ##
-## THIS FILE IS MANAGED BY ANSIBLE ##
-##                                 ##
-##        It is about time         ##
-##                                 ##
-#####################################
-# > galaxy.ansible.com/do1jlr/ntp < #
+######################################################
+##                                                  ##
+##       THIS  FILE  IS  MANAGED  BY  ANSIBLE       ##
+##                                                  ##
+##                It is about time                  ##
+##                                                  ##
+######################################################
+# > galaxy.ansible.com/ui/repo/published/l3d/time/ < #
 driftfile {{ ntp_driftfile }}
+
+{% if ntp_leap %}
+# Leap seconds definition provided by tzdata
+leapfile {{ ntp_leapfile }}
+{% endif %}
 
 {% for restrict_ip in ntp_restrict %}
 restrict {{ restrict_ip }}
@@ -17,5 +22,13 @@ server {{ pool_server }}
 {% endfor %}
 
 {% if ntp_statistics | bool %}
-statistics clockstats cryptostats loopstats peerstats
+statistics {{ ntp_statistics_overview | join(' ') }}
+
+# Enable this if you want statistics to be logged.
+statsdir {{ ntp_ntpstats_dir }}
+
+{%     for stat in ntp_statistics_overview %}
+filegen {{ stat }} file {{ stat }} type day enable
+{%     endfor %}
+
 {% endif %}

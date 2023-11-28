@@ -8,3 +8,12 @@
     group: "{{ ntp_configfile_group }}"
     mode: 0644
   notify: "Restart ntp daemons on {{ ansible_system }}"
+
+- name: Create logging folder
+  become: true
+  ansible.builtin.file:
+    path: "{{ ntp_ntpstats_dir }}"
+    state: directory
+    mode: 0755
+    owner: "{{ ntp_user }}"
+  when: ntp_statistics | bool
