@@ -17,3 +17,4 @@
     recurse: true
     mode: 'u=rwX,g=rX,o=rX'
     owner: "{{ ntp_user }}"
+  notify: "Restart ntp daemons on {{ ansible_system }}"
