@@ -14,6 +14,6 @@
   ansible.builtin.file:
     path: "{{ ntp_ntpstats_dir }}"
     state: directory
-    mode: 0755
+    recurse: true
+    mode: 'u=rwX,g=rX,o=rX'
     owner: "{{ ntp_user }}"
-  when: ntp_statistics | bool
