@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: ntp
-  author: l3d
+  author: roles-ansible
   description: Install and Configure the Network Time Protocol (NTP) Daemon
   license: "Apache-2.0"
 

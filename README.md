@@ -1,6 +1,6 @@
-[![Ansible Galaxy](https://ansible.l3d.space/svg/l3d.ntp.svg)](https://galaxy.ansible.com/ui/standalone/roles/l3d/ntp/)
-[![BSD-3 Clause](https://ansible.l3d.space/svg/l3d.ntp_license.svg)](LICENSE)
-[![Maintainance](https://ansible.l3d.space/svg/l3d.ntp_maintainance.svg)](https://ansible.l3d.space/#l3d.ntp)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/roles-ansible.ntp.svg)](https://galaxy.ansible.com/ui/standalone/roles/roles-ansible/ntp/)
+[![BSD-3 Clause](https://ansible.l3d.space/svg/roles-ansible.ntp_license.svg)](LICENSE)
+[![Maintainance](https://ansible.l3d.space/svg/roles-ansible.ntp_maintainance.svg)](https://ansible.l3d.space/#roles-ansible.ntp)
 
  Ansible role ntp
 ======================
@@ -54,12 +54,12 @@ submodules_versioncheck: false
 ### Getting this Role
 You can install this role using ansible Galaxy:
 ```bash
-ansible-galaxy install l3d.ntp
+ansible-galaxy install roles-ansible.ntp
 ```
 
 Or download or clone this git repo. Example:
 ```bash
-git clone https://github.com/roles-ansible/ansible_role_ntp.git l3d.ntp
+git clone https://github.com/roles-ansible/ansible_role_ntp.git roles-ansible.ntp
 ```
 ### Using this role in a Playbook
 ```yml
@@ -67,7 +67,7 @@ git clone https://github.com/roles-ansible/ansible_role_ntp.git l3d.ntp
 - name: Install and Configure NTP
   hosts: example.com
   roles:
-    - {role: l3d.ntp, tags: ntp}
+    - {role: roles-ansible.ntp, tags: ntp}
   vars:
     submodules_versioncheck: true
     ntp_set_time_zone: true
@@ -95,6 +95,7 @@ This role is tested on debian stable. It should work on other operating systems.
 + This role was created in 2018 by diodonfrost.
 + This role was updated and maintained since 2019 by L3D *([DO1JLR](https://github.com/do1jlr))*
 + In 2023 this role moved from ``do1jlr.ntp`` to ``l3d.ntp`` Namespace.
++ With the introduction of galaxy-ng the role was forced to move from ``l3d.ntp`` to the ``roles-ansible.ntp`` Namespace.
 
 ## Contribution
 Pleas feel free to open a issue or *(even better)* create a Pull Request if there is a problem or you missing a feature or something like that.
