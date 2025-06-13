@@ -1,10 +1,10 @@
 ---
-ntp_package: 'ntpsec'
-ntp_package_absent: 'ntp'
+ntp_package: 'ntp'
+ntp_package_absent: ''
 ntp_service: ntpd
-ntp_user: 'ntpsec'
+ntp_user: 'ntp'
 
-ntp_configfile: /etc/ntpsec/ntp.conf
+ntp_configfile: /etc/ntp.conf
 ntp_configfile_user: root
 ntp_configfile_group: root
-ntp_driftfile: /var/lib/ntp/drift
+ntp_driftfile: /var/lib/ntp/ntp.drift
