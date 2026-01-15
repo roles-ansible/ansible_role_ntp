@@ -7,7 +7,7 @@
     owner: "{{ ntp_configfile_user }}"
     group: "{{ ntp_configfile_group }}"
     mode: 0644
-  notify: "Restart ntp daemons on {{ ansible_system }}"
+  notify: "Restart ntp daemons on {{ ansible_facts['system'] }}"
 
 - name: Create logging folder
   become: true
@@ -17,4 +17,4 @@
     recurse: true
     mode: 'u=rwX,g=rX,o=rX'
     owner: "{{ ntp_user }}"
-  notify: "Restart ntp daemons on {{ ansible_system }}"
+  notify: "Restart ntp daemons on {{ ansible_facts['system'] }}"
