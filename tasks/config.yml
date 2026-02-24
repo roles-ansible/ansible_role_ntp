@@ -6,7 +6,7 @@
     dest: "{{ ntp_configfile }}"
     owner: "{{ ntp_configfile_user }}"
     group: "{{ ntp_configfile_group }}"
-    mode: 0644
+    mode: '0644'
   notify: "Restart ntp daemons on {{ ansible_facts['system'] }}"
 
 - name: Create logging folder
